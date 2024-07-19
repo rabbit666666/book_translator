@@ -7,13 +7,6 @@ from difflib import SequenceMatcher
 import ebooklib
 from bs4 import BeautifulSoup
 from ebooklib import epub
-# import spacy
-# nlp = spacy.load("en_core_web_sm")
-# import nltk
-# os.environ['http_proxy'] = 'http://127.0.0.1:8887'
-# os.environ['https_proxy'] = 'http://127.0.0.1:8887'
-# nltk.download('punkt')
-# from nltk.tokenize import sent_tokenize
 import re
 from app import (
     config_parser as cp,
@@ -122,7 +115,7 @@ class Translator:
         for tag in translated_tags:
             if htmllib.is_img_tag(tag):
                 img2_count += 1
-        if (img1_count != img2_count) and retry_times < 3:
+        if (img1_count != img2_count) and retry_times < 5:
             retry_times += 1
             need_retry = True
         if translated_tags[0] != '<div>' or translated_tags[-1] != '</div>':

@@ -1,0 +1,37 @@
+{
+  "openai": {
+    "api_key": "sk-xxxxxxxxxxxxx",
+    "url": 'https://api.deepseek.com',
+    "model_name": 'deepseek-chat',
+  },
+  "books": [
+    {
+      // run: true：运行这本书，false：跳过
+      "run": true,
+      //action: translate(翻译), show_chapter(查看章节序号), check_error(检查书中错误)
+      "action": "translate",
+      "input": "book/xxxxxxxx_en.epub", // 要翻译的书名
+      "output": "book/xxxxxxxx_zh.epub", // 翻译好的书名
+      "continue": false,
+      // test: >0，表示只翻译指定的n条，用来测试翻译效果。
+      "test": -1,
+      "from_chapter": 2,  // 需要翻译的开始章节，具体的章节序号，使用show_chapter获得
+      "to_chapter": 9999, // 需要翻译的结束
+      "from_lang": "EN",
+      "to_lang": "ZH",
+      "promote": [
+        //         提示词：一句话一行
+        "Act as a professional translator with expertise in Simplified Chinese, focusing on making English articles suitable for Chinese readers. Follow these guidelines:",
+        "1. Prioritize interpretive translation over literal translation.",
+        "2. Polish the translation to make it easy to read and aligned with Chinese language norms.",
+        "3. For specific terms, include the original English name in parentheses, e.g., ‘BPP algorithm’ should be translated as ‘BPP算法(BPP algorithm)’.",
+        "4. Keep all special characters and HTML tags from the source text without adding any new HTML tags.",
+        "5. Machine learning (ML) is transforming virtually every aspect of our lives. Today, ML algorithms perform tasks that, until recently, only expert humans could do. Finance is poised for disruptive innovations that will change how future generations understand money and invest.",
+        "6. Readers will learn how to structure big data for ML algorithms, conduct research using ML algorithms on big data, use supercomputing methods to back test discoveries while avoiding false positives.",
+        "7. Advances in Financial Machine Learning tackles real-world problems faced by practitioners daily and provides scientifically sound solutions using math, supported by code and examples. Readers become active users who can test the proposed solutions in their own settings.",
+        "8. Authored by a recognized expert and portfolio manager, this book equips investment professionals with groundbreaking tools to succeed in modern finance.",
+        "9. Provide only the Chinese translation, ensuring not to complete any HTML codes or tags.",
+      ]
+    }
+  ]
+}
